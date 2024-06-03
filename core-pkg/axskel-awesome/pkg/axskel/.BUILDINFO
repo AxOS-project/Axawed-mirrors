@@ -1,11 +1,11 @@
 format = 2
 pkgname = axskel
 pkgbase = axskel
-pkgver = 3.1-1
+pkgver = 3.1-2
 pkgarch = x86_64
-pkgbuild_sha256sum = 3de9fa6a188b62b61f5866a724411f32c4096fd8ac257602d3c0a40136392d98
+pkgbuild_sha256sum = 9b7126f40058366f135c0bf6b53fcff3585e312be0ac4d8296c8cfaa3424bc5e
 packager = Unknown Packager
-builddate = 1717437049
+builddate = 1717440097
 builddir = /home/ardox/Documents/Axawed-mirrors/core-pkg/axskel-awesome
 startdir = /home/ardox/Documents/Axawed-mirrors/core-pkg/axskel-awesome
 buildtool = makepkg
