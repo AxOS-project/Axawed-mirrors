@@ -21,7 +21,7 @@ local req = {
   'music',
   'client',
   'awful.autofocus',
-  --'lockscreen',
+  --'batscript',
 }
 
 for _, x in pairs(req) do
@@ -60,8 +60,8 @@ end)
 awful.spawn.with_shell('redshift -x && redshift -O 5900K')
 awful.spawn.with_shell('killall flameshot; flameshot')
 awful.spawn.with_shell('killall xsettingsd; xsettingsd &')
-awful.spawn.with_shell('killall mpDris2; mpDris2 &')
-awful.spawn.with_shell('mpd &')
+awful.spawn.with_shell('node ~/.config/awesome/discord-rpc-axos/index.js')
+--awful.spawn.with_shell("picom --config ~/.config/awesome/picom.conf")
 
 -- Garbage Collection
 collectgarbage('setpause', 110)

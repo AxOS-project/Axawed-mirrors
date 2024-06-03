@@ -32,7 +32,7 @@ local sliders = wibox.widget {
       {
         {
           font = beautiful.icofont,
-          text = '',
+          text = '',
           widget = wibox.widget.textbox,
         },
         sli.mem,
@@ -46,6 +46,16 @@ local sliders = wibox.widget {
           widget = wibox.widget.textbox,
         },
         sli.bat,
+        spacing = dpi(10),
+        layout = wibox.layout.fixed.horizontal
+      },
+      {
+        {
+          font = beautiful.icofont,
+          text = '',
+          widget = wibox.widget.textbox,
+        },
+        sli.cpu,
         spacing = dpi(10),
         layout = wibox.layout.fixed.horizontal
       },
@@ -75,8 +85,6 @@ local buttons = wibox.widget {
     {
       wid.wifi,
       wid.blu,
-      wid.vol,
-      wid.nig,
       spacing = dpi(10),
       layout = wibox.layout.flex.horizontal,
     },
@@ -91,6 +99,27 @@ local buttons = wibox.widget {
   bg = beautiful.bg2,
 }
 
+local buttons2 = wibox.widget {
+  {
+    {
+      wid.vol,
+      wid.nig,
+      wid.eco,
+      spacing = dpi(10),
+      layout = wibox.layout.flex.horizontal,
+    },
+    top = dpi(20),
+    bottom = dpi(20),
+    right = dpi(15),
+    left = dpi(15),
+    widget = wibox.container.margin
+  },
+  shape = help.rrect(beautiful.br),
+  widget = wibox.container.background,
+  bg = beautiful.bg2,
+}
+
+
 local dashboard = awful.popup {
   widget = {
     {
@@ -102,6 +131,7 @@ local dashboard = awful.popup {
       require("dashboard.play"),
       sliders,
       buttons,
+      buttons2,
       spacing = dpi(20),
       layout = wibox.layout.fixed.vertical,
     },
@@ -117,6 +147,7 @@ local dashboard = awful.popup {
     (awful.placement.bottom_left)(c, { margins = { left = 60, bottom = 10 } })
   end,
 }
+
 
 dashboard.toggle = function()
   dashboard.visible = not dashboard.visible

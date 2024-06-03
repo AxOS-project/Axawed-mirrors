@@ -1,4 +1,6 @@
 local wibox = require("wibox")
+local naughty = require("naughty")
+
 local help = {}
 
 help.rrect = function(rad)
@@ -21,7 +23,6 @@ function help.vertical_pad(height)
         layout = wibox.layout.fixed.vertical
     }
 end
-
 
 return help
 

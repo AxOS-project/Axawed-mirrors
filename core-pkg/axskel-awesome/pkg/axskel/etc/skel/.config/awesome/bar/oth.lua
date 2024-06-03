@@ -1,6 +1,7 @@
 local btn = require('wid.btn')
 local M = {}
 
+
 -- Separator
 M.sep = wibox.widget {
   {
@@ -29,3 +30,4 @@ M.search = btn('', c'rofi -show drun', _, _, 10)
 M.scr = btn('', c'flameshot gui', _, _, 10)
 
 return M
+

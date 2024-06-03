@@ -34,13 +34,10 @@ keys.globalkeys = gears.table.join(
   awful.key({mod}, 'w', function() awful.util.spawn('firefox') end),
   awful.key({mod}, 'e', function() awful.util.spawn('thunar') end),
 
-  -- Lockscreen
+  -- Misc
   awful.key({mod}, 'l', function() lock_screen_show() end),
-
-
-
-  -- Screenshots
-  awful.key({}, 'Print', function() awful.util.spawn('flameshot gui') end)
+  awful.key({}, 'Print', function() awful.util.spawn('flameshot gui') end),
+  awful.key({mod}, 'x', function() awful.util.spawn('gpick -p') end)
 )
 
 -- Keyboard Control

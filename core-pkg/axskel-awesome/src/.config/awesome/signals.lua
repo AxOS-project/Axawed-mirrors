@@ -1,6 +1,7 @@
 local naughty = require 'naughty'
 local M = {}
 
+local cpu = [[awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1); }' <(grep 'cpu ' /proc/stat) <(sleep 0.5;grep 'cpu ' /proc/stat) | awk '{print int($1)}']]
 local vol = [[ str=$( pulsemixer --get-volume ); printf "$(pulsemixer --get-mute) ${str% *}\n" ]]
 local net = [[ printf "$(cat /sys/class/net/w*/operstate)~|~$(nmcli radio wifi)" ]]
 local blue = [[ bluetoothctl show | grep "Powered:" ]]
@@ -27,13 +28,20 @@ M.mem = function ()
   end)
 end
 
+M.cpu = function ()
+  awful.spawn.easy_async_with_shell(cpu, function (out)
+    awesome.emit_signal('cpu::value', tonumber(out))
+  end)
+end
+
 local batstate
 M.bat = function()
   awful.spawn.easy_async_with_shell(batpercentage_cmd, function(out)
     awful.spawn.easy_async_with_shell(batstate_cmd, function(outp)
       batstate = outp
+      batval = tonumber(out)
     end)
-    awesome.emit_signal('bat::value', tonumber(out), batstate)
+    awesome.emit_signal('bat::value', batval, batstate)
   end)
 end
 
@@ -93,6 +101,7 @@ gears.timer {
     M.mem()
     M.temp()
     M.bat()
+    M.cpu()
     -- M.fs()
   end
 }

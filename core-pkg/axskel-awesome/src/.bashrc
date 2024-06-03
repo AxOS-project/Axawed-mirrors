@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 #Prompt
-PS1='\033[1;32m\w\033[0;0m '
+PS1='\[\e[00;34m\]λ \W \[\e[0m\]'
 
 #Exports 
 export PATH="$HOME/.local/bin/:/usr/local/bin/:$PATH"

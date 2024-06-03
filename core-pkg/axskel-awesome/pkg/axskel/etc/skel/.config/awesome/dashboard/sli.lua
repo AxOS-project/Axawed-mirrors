@@ -72,6 +72,17 @@ M.bat = wibox.widget {
   widget = wibox.widget.progressbar,
 }
 
+M.cpu = wibox.widget {
+  max_value = 100,
+  value = 0,
+  forced_height = dpi(20),
+  shape = help.rrect(beautiful.br),
+  color = beautiful.pri,
+  background_color = beautiful.bg3,
+  forced_width = dpi(175),
+  widget = wibox.widget.progressbar,
+}
+
 awesome.connect_signal('vol::value', function(mut, val)
   if mut == 0 then
     M.vol.handle_color = beautiful.pri
@@ -96,6 +107,10 @@ end)
 awesome.connect_signal('fs::value', function(val, max)
   M.fs.max_value = max
   M.fs.value = val
+end)
+
+awesome.connect_signal('cpu::value', function(val)
+  M.cpu.value = val
 end)
 
 M.vol:connect_signal('property::value', function(val)

@@ -3,10 +3,10 @@
 pkgname = axskel
 pkgbase = axskel
 xdata = pkgtype=pkg
-pkgver = 3.0-1
+pkgver = 3.1-1
 pkgdesc = skel configs and looks for AxOS Awesome Edition
 url = 
-builddate = 1715802493
+builddate = 1717437049
 packager = Unknown Packager
-size = 13335704
+size = 13345144
 arch = x86_64
