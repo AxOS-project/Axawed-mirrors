@@ -31,7 +31,7 @@ M.bat = wibox.widget {
 -- Clock
 M.clock = wibox.widget {
   font = beautiful.barfont,
-  format="%H\n%M",
+  format="%H:%M",
   refresh=1,
   align = 'center',
   valign = 'center',
@@ -94,8 +94,7 @@ awesome.connect_signal('bat::value', function(val, state)
     M.bat.opacity = 0.5
     M.bat.markup = ""
   else
-    M.bat.opacity = 1
-    M.bat.markup = ""
+    M.bat.visible = false
   end
 end)
 

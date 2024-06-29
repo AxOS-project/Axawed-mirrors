@@ -21,7 +21,8 @@ local req = {
   'music',
   'client',
   'awful.autofocus',
-  --'batscript',
+  'batscript',
+  'osd',
 }
 
 for _, x in pairs(req) do
