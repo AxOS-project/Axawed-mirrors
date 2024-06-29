@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2024 AxOS
+##
+## About AxOS
+
+## Get ISO Version
+if [[ -e '/version' ]]; then
+	version="v`cat /version | cut -d'.' -f1`.`cat /version | cut -d '.' -f2`"
+else
+	version=''
+fi
+
+yad --title='About AxOS' --window-icon='axos-logo' \
+	--about \
+	--pname='AxOS' \
+	--pversion="$version" \
+	--image='axos-logo' \
+	--comments="The Linux experience, enhanced." \
+	--copyright="Copyright 2020-`date +'%Y'`, Ardox <@levraiardox>" \
+	--license='GPL3' \
+	--website='https://www.axos-project.com' \
+	--website-label='www.axos-project.com' \
+	--authors="Ardox <ardox@axos-project.com>"

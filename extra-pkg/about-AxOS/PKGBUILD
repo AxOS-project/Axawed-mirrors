@@ -1,0 +1,11 @@
+pkgname="about-axos"
+pkgver="1.3"
+pkgrel="1"
+pkgdesc="About AxOS"
+arch=("x86_64")
+depends=("yad")
+
+package(){
+   mkdir -p ${pkgdir}/
+   cp -r ${srcdir}/usr/ ${pkgdir}/
+}
